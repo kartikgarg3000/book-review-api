@@ -1,8 +1,8 @@
-
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const connectDB = require('./config/db');
+const authRoutes = require('./routes/authRoutes');
 
 // Connect to database
 connectDB();
@@ -13,7 +13,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes (we'll add these later)
+// Routes
+app.use('/api/auth', authRoutes);
 app.get('/', (req, res) => {
     res.json({ message: 'Welcome to Book Review API' });
 });
