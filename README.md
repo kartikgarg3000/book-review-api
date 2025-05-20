@@ -29,6 +29,7 @@ A RESTful API for managing books and reviews built with Node.js, Express, and Mo
 git clone https://github.com/kartikgarg3000/book-review-api.git
 cd book-review-api
 npm install
+
 Configuration
 Create .env file:
 
@@ -37,6 +38,7 @@ PORT=5000
 MONGO_URI=mongodb://localhost:27017/book_review
 JWT_SECRET=your_secure_jwt_secret_here
 JWT_EXPIRE=30d
+
 Running the Server
 bash
 # Start MongoDB service (Windows)
@@ -47,16 +49,19 @@ npm start
 Server runs at http://localhost:5000
 
 📡 API Reference
+
 Authentication
 Endpoint	Method	Description	Auth Required
 /api/auth/signup	POST	Register new user	No
 /api/auth/login	POST	User login	No
+
 Books
 Endpoint	Method	Description	Auth Required
 /api/books	POST	Add new book	Yes
 /api/books	GET	Get all books (paginated)	No
 /api/books/:id	GET	Get book details	No
 /api/books/search	GET	Search books	No
+
 Reviews
 Endpoint	Method	Description	Auth Required
 /api/books/:id/reviews	POST	Add review	Yes
