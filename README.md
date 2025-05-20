@@ -51,22 +51,22 @@ Server runs at http://localhost:5000
 📡 API Reference
 
 Authentication
-Endpoint	Method	Description	Auth Required
-/api/auth/signup	POST	Register new user	No
-/api/auth/login	POST	User login	No
+Endpoint	        Method	Description	        Auth Required
+/api/auth/signup	POST	  Register new user	  No
+/api/auth/login	  POST	  User login	        No
 
 Books
-Endpoint	Method	Description	Auth Required
-/api/books	POST	Add new book	Yes
-/api/books	GET	Get all books (paginated)	No
-/api/books/:id	GET	Get book details	No
-/api/books/search	GET	Search books	No
+Endpoint	        Method   Description	                Auth Required
+/api/books	      POST	   Add new book	                Yes
+/api/books	      GET	     Get all books (paginated)   	No
+/api/books/:id	  GET	     Get book details	            No
+/api/books/search	GET	     Search books	                No
 
 Reviews
-Endpoint	Method	Description	Auth Required
-/api/books/:id/reviews	POST	Add review	Yes
-/api/reviews/:id	PUT	Update review	Yes
-/api/reviews/:id	DELETE	Delete review	Yes
+Endpoint	              Method  	Description   	Auth Required
+/api/books/:id/reviews	POST	    Add review	    Yes
+/api/reviews/:id	      PUT	      Update review  	Yes
+/api/reviews/:id	      DELETE	  Delete review 	Yes
 
 📋 Database Schema
 
@@ -128,7 +128,6 @@ erDiagram
         number rating
         string comment
     }
-```
 
 🏗 Project Structure
 
