@@ -47,20 +47,42 @@ const getBookById = async (req, res) => {
     }
 };
 
+// Search books by title or author(Additional feature)
 const searchBooks = async (req, res) => {
     try {
         const { query } = req.query;
+        
+        if (!query) {
+            return res.status(400).json({
+                status: 'error',
+                message: 'Search query is required'
+            });
+        }
+
         const books = await Book.find({
             $or: [
                 { title: new RegExp(query, 'i') },
                 { author: new RegExp(query, 'i') }
             ]
+        })
+        .select('title author genre averageRating reviewCount')
+        .limit(10);
+
+        res.json({
+            status: 'success',
+            results: books.length,
+            data: {
+                books
+            }
         });
-        res.json(books);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({
+            status: 'error',
+            message: error.message
+        });
     }
 };
+
 
 module.exports = {
     addBook,
